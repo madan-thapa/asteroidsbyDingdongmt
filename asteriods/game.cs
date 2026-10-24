@@ -18,9 +18,9 @@ namespace asteriods
     public partial class frmgame : Form
     {
         // \\ igonre meaning of the next backslash and chracters. makes the file correct
-        string file_name = Directory.GetCurrentDirectory() + "\\name.txt";
+        string file_name = Path.Combine(AppContext.BaseDirectory, "name.txt");
         // add score
-        string file_score = Directory.GetCurrentDirectory() + "\\score.txt";
+        string file_score = Path.Combine(AppContext.BaseDirectory, "score.txt");
         //bullet
         bool bullet = false;
         char buttonpressed = '0';
@@ -511,7 +511,7 @@ namespace asteriods
         private void label1_Click(object sender, EventArgs e)
         {
             // open help text file to help
-            Process.Start(Directory.GetCurrentDirectory() + "\\help.txt");
+            Process.Start(new ProcessStartInfo(Path.Combine(AppContext.BaseDirectory, "help.txt")) { UseShellExecute = true });
         }
 
         private void frmgame_Load(object sender, EventArgs e)

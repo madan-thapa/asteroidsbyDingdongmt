@@ -15,9 +15,9 @@ namespace asteriods
     public partial class frmhigh : Form
     {
         // \\ igonre meaning of the next backslash and chracters. makes the file correct
-        string file_name = Directory.GetCurrentDirectory() + "\\name.txt";
+        string file_name = Path.Combine(AppContext.BaseDirectory, "name.txt");
         //for score file
-        string file_score = Directory.GetCurrentDirectory() + "\\score.txt";
+        string file_score = Path.Combine(AppContext.BaseDirectory, "score.txt");
         public frmhigh()
         {
 
@@ -83,7 +83,7 @@ namespace asteriods
         }
         private void btnprint_Click(object sender, EventArgs e)
         {
-            Process.Start(Directory.GetCurrentDirectory() + "\\certificate.pdf");
+            Process.Start(new ProcessStartInfo(Path.Combine(AppContext.BaseDirectory, "certificate.pdf")) { UseShellExecute = true });
         }
         private void gamespage_Click(object sender, EventArgs e)
         {
